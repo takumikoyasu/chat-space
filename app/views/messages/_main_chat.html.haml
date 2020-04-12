@@ -1,0 +1,37 @@
+.chat-main
+  .header
+    .header-group
+      .header-group__name
+        Group
+        %ul.menber-list
+          %li Menber : 
+          %li User1
+          %li User2
+    = link_to "#", class:"header-group__edit" do
+      Edit
+  .chat-messages
+    .messages
+      .message
+        .message__user-name
+          User1
+        .message__date
+          2020/04/10(Fri) 22:03:29
+      .message__text
+        メッセージを表示  
+      .message
+        .message__user-name
+          User2
+        .message__date
+          2020/04/10(Fri) 22:03:32
+      .message__text
+        メッセージを表示
+  .chat-form
+    %form.new-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('far', 'image')
+          %input{type:'file', class:"input-box__image__file"}
+      %input{type: "submit",value:"Send", class:"send-btn"}
+        
+  
