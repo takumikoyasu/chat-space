@@ -34,12 +34,18 @@
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
+      color: $white;
+      text-decoration: none;
       &__name {
         font-size: 15px;
         padding: 0 0 5px 0 ;
+        color: $white;
+        text-decoration: none;
       }
       &__message {
         font-size: 11px;
+        color: $white;
+        text-decoration: none;
       }
     }
   }
