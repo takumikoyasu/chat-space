@@ -2,36 +2,28 @@
   .header
     .header-group
       .header-group__name
-        Group
-        %ul.menber-list
-          %li Menber : 
-          %li User1
-          %li User2
-    = link_to "#", class:"header-group__edit" do
+        = @group.name
+        .menber-list
+          Menber : 
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(current_user), class:"header-group__edit" do
       Edit
   .chat-messages
-    .messages
-      .message
-        .message__user-name
-          User1
-        .message__date
-          2020/04/10(Fri) 22:03:29
-      .message__text
-        メッセージを表示  
-      .message
-        .message__user-name
-          User2
-        .message__date
-          2020/04/10(Fri) 22:03:32
-      .message__text
-        メッセージを表示
+    = render @messages
+      
   .chat-form
-    %form.new-message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('far', 'image')
-          %input{type:'file', class:"input-box__image__file"}
-      %input{type: "submit",value:"Send", class:"send-btn"}
-        
+    .new-message
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = icon('far', 'image')
+            = f.file_field :image, class: 'input-box__image__file'
+          = f.submit 'Send', class: 'send-btn'
+
+
+    
+
+    
   
