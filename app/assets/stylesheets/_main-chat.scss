@@ -42,6 +42,7 @@
     height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: $hchat-messages;
+    overflow: scroll;
     .message {
       margin-bottom: 12px;
       display: flex;
@@ -72,13 +73,13 @@
 
 //form -------------------------------------------------
   .chat-form {
-    height: 90px;
     width: calc(100vw - 300px);
     padding: 20px 40px;
     background-color: $chat-form_gree;
     position: fixed;
     bottom: 0;
     .new-message{
+      height: 100%;
       display: flex;
       justify-content: space-between;
       .input-box {
@@ -86,8 +87,8 @@
         justify-content: space-between;
         position: relative;
         &__text {
+          width: calc(100vw - 500px);
           height: 50px;
-          width: 925px;
           color: #434A54;
           border-style: none;
           padding: 0 40px 0 10px;
