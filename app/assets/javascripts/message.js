@@ -1,49 +1,49 @@
 $(function(){
-    function buildHTML(message){
-      if (message.content && message.image) {
-        const html =
-         `<div class="messages" data-message-id=${message.id}>
-            <div class="message">
-              <div class="message__user-name">
-                ${message.user_name}
-              </div>
-              <div class="message__date">
-                ${message.created_at}
-              </div>
+  function buildHTML(message){
+    if (message.content && message.image || message.image) {
+      const html =
+       `<div class="messages" data-message-id=${message.id}>
+          <div class="message">
+            <div class="message__user-name">
+              ${message.user_name}
             </div>
-            <div class="message-text">
-              <p class="content">
-                ${message.content}
-              </p>
+            <div class="message__date">
+              ${message.created_at}
             </div>
-            　<img class="message-text__image" src=${message.image} ></img>
-          </div>`
-          return html;
-      } else {
-        const html =
-         `<div class="messages" data-message-id=${message.id}>
-            <div class="message">
-              <div class="message__user-name">
-                ${message.user_name}
-              </div>
-              <div class="message__date">
-                ${message.created_at}
-              </div>
+          </div>
+          <div class="message-text">
+            <p class="content">
+              ${message.content}
+            </p>
+          </div>
+         <img class="message-text__image" src=${message.image}></img>
+        </div>`
+      return html;
+    } else {
+      const html =
+        `<div class="messages" data-message-id=${message.id}>
+          <div class="message">
+            <div class="message__user-name">
+              ${message.user_name}
             </div>
-            <div class="message-text">
-              <p class="content">
-                ${message.content}
-              </p>
+            <div class="message__date">
+              ${message.created_at}
             </div>
-          </div>`
-        return html;
-      };
-    }
+          </div>
+          <div class="message-text">
+            <p class="content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
+      return html;
+    };
+  };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-      const formData = new FormData(this);
-      const url = $(this).attr('action');
+    const formData = new FormData(this);
+    const url = $(this).attr('action');
       $.ajax({
         url: url,
         type: "POST",
@@ -83,7 +83,7 @@ $(function(){
       }
     })
     .fail(function() {
-      alert('error');
+      alert('自動更新に失敗しました');
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
