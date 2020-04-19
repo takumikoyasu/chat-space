@@ -39,7 +39,6 @@ $(function(){
       return html;
     };
   };
-
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     const formData = new FormData(this);
@@ -74,7 +73,7 @@ $(function(){
     })
     .done(function(messages) {
       if (messages.length !== 0) {
-      const insertHTML = '';
+      var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
       });
